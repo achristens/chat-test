@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:name])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to chats_url
+      redirect_to chats_path
     else
       render :new
     end
